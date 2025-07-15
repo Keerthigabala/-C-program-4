@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+
+
+struct SquareCalculator {
+
+    int (*calculateSquare)(int); 
+
+};
+
+
+
+int squareFunction(int n) {
+
+    if (n >= 1 && n <= 9) {
+
+        return n * n;
+
+    } else {
+
+        return -1; 
+
+    }
+
+}
+
+int main() {
+
+    int num;
+
+    scanf("%d", &num);
+
+  
+
+    struct SquareCalculator sc;
+
+    sc.calculateSquare = squareFunction;
+
+    int result = sc.calculateSquare(num);
+
+    if (result != -1) {
+
+        printf("Square of %d is %d\n", num, result);
+
+    } else {
+
+        printf("Invalid Input\n");
+
+    }
+
+    return 0;
+
+}
+
+
+
+
+
+   
+ 
+
